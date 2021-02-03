@@ -1,0 +1,241 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    --boxsize : 100px;
+    --symbolsize : calc(var(--boxsize) * .9);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.heading{
+    font-size: 2em;
+    margin: .5em 0;
+    text-align: center;
+}
+
+h5{
+    margin: 0;
+    font-size: 0.5em;
+    position: relative;
+    left: 50px;
+}
+
+.grid{
+    width: 90vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.box{
+    width: var(--boxsize);
+    height: var(--boxsize);
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: rgb(0, 0, 0) 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:first-child,
+.box:nth-child(2),
+.box:nth-child(3){
+    border-top: none;
+}
+
+.box:first-child,
+.box:nth-child(4),
+.box:nth-child(7){
+    border-left: none;
+}
+
+.box:last-child,
+.box:nth-child(7),
+.box:nth-child(8){
+    border-bottom: none;
+}
+
+.box:last-child,
+.box:nth-child(3),
+.box:nth-child(6){
+    border-right: none;
+}
+
+
+.box.x::before,
+.box.x::after,
+.grid.x .box:not(.x):not(.o):hover::before,
+.grid.x .box:not(.x):not(.o):hover::after
+{
+  content: '';
+  width: calc(var(--symbolsize) * .15);
+  height: var(--symbolsize);
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+}
+
+.box.x::before,
+.grid.x .box:not(.x):not(.o):hover::before{
+    transform: rotate(50deg);
+}
+
+.box.x::after,
+.grid.x .box:not(.x):not(.o):hover::after{
+    transform: rotate(-50deg);
+}
+
+.box.o::before,
+.box.o::after,
+.grid.o .box:not(.x):not(.o):hover::after,
+.grid.o .box:not(.x):not(.o):hover::before
+{
+  content: '';
+  background-color: rgb(12, 12, 12);
+  border-radius: 60%;
+  position: absolute;
+}
+ 
+.box.o::before,
+.grid.o .box:not(.x):not(.o):hover::before{
+    width: var(--symbolsize);
+    height: var(--symbolsize);
+}
+
+.box.o::after,
+.grid.o .box:not(.x):not(.o):hover::after{
+    width: calc(var(--symbolsize) * .8);
+    height: calc(var(--symbolsize) * .8);
+    background-color: rgb(255, 255, 255);
+}
+
+.box.x,
+.box.o{
+    cursor: not-allowed;
+}
+
+.grid.x .box:not(.x):not(.o):hover::after,
+.grid.x .box:not(.x):not(.o):hover::before{
+    background-color: rgba(121, 121, 121, 0.836);
+}
+
+.grid.o .box:not(.x):not(.o):hover::before{
+    background-color: rgba(121, 121, 121, 0.836);
+}
+
+.message{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.693);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    flex-direction: column;
+}
+
+.message.show{
+    display: flex;
+}
+
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    margin: 1em;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-8 {
+    background-color: #f0ecfc;
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+.btn-8 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.btn-8:before,
+.btn-8:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
+}
+.btn-8:before{
+     height: 0%;
+     width: 2px;
+}
+.btn-8:after {
+    width: 0%;
+    height: 2px;
+}
+.btn-8:hover:before {
+    height: 100%;
+}
+.btn-8:hover:after {
+    width: 100%;
+}
+.btn-8:hover{
+    background: transparent;
+}
+.btn-8 span:hover{
+    color: #c797eb;
+}
+.btn-8 span:before,
+.btn-8 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    background: #c797eb;
+    transition: all 0.3s ease;
+}
+.btn-8 span:before {
+    width: 2px;
+    height: 0%;
+}
+.btn-8 span:after {
+    height: 2px;
+    width: 0%;
+}
+.btn-8 span:hover:before {
+    height: 100%;
+}
+.btn-8 span:hover:after {
+    width: 100%;
+}
