@@ -208,7 +208,7 @@ h5{
     height: 100%;
 }
 .btn-8:hover:after {
-    width: 100%;
+    width: 100%; 
 }
 .btn-8:hover{
     background: transparent;
