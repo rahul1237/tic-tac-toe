@@ -1,5 +1,6 @@
 *,*::after,*::before{
     box-sizing: border-box;
+    overflow: hidden;
     font-family: 'Dancing Script', cursive;
 }
 
@@ -12,6 +13,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: rgba(145, 8, 8, 0.864);
+    
 }
 
 .heading{
@@ -19,6 +21,13 @@ body{
     margin: .3em 0;
     text-align: center;
     color: white;
+}
+
+.container{
+    top: 50vh;
+    left: 50vw;
+    position: fixed;
+    transform: translate(-50%,-50%);
 }
 
 h5{
